@@ -21,7 +21,8 @@ let package = Package(
         ),
         .testTarget(
             name: "RasterTests",
-            dependencies: ["Raster", "SnapshotTesting"]
+            dependencies: ["Raster", "SnapshotTesting"],
+            resources: [.copy("__Snapshots__")]
         ),
 
     ]
