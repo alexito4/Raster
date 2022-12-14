@@ -3,8 +3,9 @@ import XCTest
 import SnapshotTesting
 import SwiftUI
 
+@MainActor
 final class RasterTests: XCTestCase {
-    func testExample() throws {
+    func testExample() async throws {
         let size = CGSize(width: 100, height: 100)
         let view = ExampleView()
             .frame(width: size.width, height: size.height, alignment: .center)

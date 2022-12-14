@@ -1,6 +1,7 @@
 import AppKit
 import SwiftUI
 
+@MainActor
 extension View {
     public func rasterizeBitmap(at size: CGSize) ->  NSBitmapImageRep {
         let nsView = NSHostingView(rootView: self.frame(width: size.width, height: size.height))
