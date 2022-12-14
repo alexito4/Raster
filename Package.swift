@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.7
 
 import PackageDescription
 
@@ -12,7 +12,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(name: "SnapshotTesting", url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.8.1"),
+        .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.10.0"),
     ],
     targets: [
         .target(
@@ -21,7 +21,10 @@ let package = Package(
         ),
         .testTarget(
             name: "RasterTests",
-            dependencies: ["Raster", "SnapshotTesting"],
+            dependencies: [
+                "Raster",
+                .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
+            ],
             resources: [.copy("__Snapshots__")]
         ),
 
